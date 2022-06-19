@@ -1,38 +1,270 @@
-.App {
+.loginpage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginpage button {
+  padding: 1rem;
+  background-color: #4b7fe0;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+}
+
+.loginbox {
+  background-color: var(--white);
+  border: 1px solid var(--bg);
+  padding: 10rem;
+  max-width: max-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginbox img {
+  height: 5rem;
+  margin-bottom: 3rem;
+}
+
+/*  */
+
+.navbar {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+
+.navbar .logo {
+  max-height: 3.5rem;
+}
+
+.navbar label {
+  width: 30%;
+  position: relative;
+}
+
+.navbar label svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-60%);
+  font-size: 1.8rem;
+}
+
+.navbar .search {
+  background-color: var(--bg);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem 1.5rem 3.5rem;
+  width: 100%;
+  border: 1px solid rgb(232, 232, 232);
+  outline: none;
+}
+
+.navbar .profilepic {
+  max-height: 4rem;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.navbar .profiledropdown {
+  position: relative;
+}
+
+.navbar .profiledropdownlinks {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform: translateX(40%);
+  top: 6rem;
+  border: 1px solid rgb(189, 189, 189);
+  padding: 1rem 0;
+}
+
+.navbar .profiledropdownlinks::before {
+  content: " ";
+  padding: 1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%) rotate(45deg);
+  position: absolute;
+  background-color: var(--white);
+  border-left: 1px solid rgb(189, 189, 189);
+  border-top: 1px solid rgb(189, 189, 189);
+}
+
+.navbar .profiledropdownlinks button,
+.navbar .profiledropdownlinks a {
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  color: var(--black);
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navbar .profiledropdownlinks button:hover,
+.navbar .profiledropdownlinks a:hover {
+  background-color: var(--bg);
+}
+
+.navbar .addpost svg {
+  font-size: 4.7rem;
+  vertical-align: sub;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+/*  */
+
+.addpostcontainer {
+  position: absolute;
+  background-color: rgba(000, 000, 000, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+}
+
+.addpostform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+  background-color: var(--white);
+  padding: 3rem;
+  position: relative;
+}
+
+.addpostform h3 {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  display: inline-block;
+  width: max-content;
+}
+
+.addpostform .closemodal {
+  position: absolute;
+  right: -4rem;
+  top: 0;
+  background-color: var(--white);
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.addpostform label {
+  background-color: rgb(65, 65, 192);
+  color: var(--white);
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.addpostform textarea {
+  width: 100%;
+  height: 10rem;
+  padding: 1rem;
+  margin-top: -4rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.addpostform input[type="file"] {
+  opacity: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.addpostform img {
+  height: 17rem;
+}
+
+.addpostform button[type="submit"] {
+  padding: 1rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+/*  */
+
+.posts {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.posts_container {
+  background-color: var(--white);
+  max-width: 40rem;
+  padding: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.postimage {
+  width: 100%;
+}
+
+.post_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.post_header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post_header-left img {
+  border-radius: 100%;
+  padding: 4px;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  max-height: 5rem;
+}
+
+.post_header-right svg {
+  font-size: 2.5rem;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #000;
+  cursor: pointer;
+}
+
+.heart {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.likescount {
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}
+
+.comments {
+  list-style: none;
+  margin-top: 1rem;
 }
