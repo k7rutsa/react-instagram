@@ -3,7 +3,7 @@ import { auth } from "../firebase";
 import instagram from "../images/instagram.png";
 import { FiSearch } from "react-icons/fi";
 import { CgProfile, CgLogOut } from "react-icons/cg";
-import { AiOutlinePlusCircle } from "react-icons/ai";
+import { AiOutlinePlusCircle, AiOutlineHome } from "react-icons/ai";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -48,6 +48,9 @@ const Navbar = () => {
         </label>
 
         <div className="profiledropdown">
+          <Link to="/" className="addpost">
+            <AiOutlineHome />
+          </Link>
           <span className="addpost" onClick={modalstatehandler}>
             <AiOutlinePlusCircle />
           </span>

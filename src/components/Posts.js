@@ -9,6 +9,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import { AiFillDelete, AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { auth, db } from "../firebase";
+import Moment from "react-moment";
 
 const Posts = ({
   username,
@@ -19,6 +20,7 @@ const Posts = ({
   docid,
   caption,
   userid,
+  timeposted,
 }) => {
   let [likestate, setlikestate] = useState(false);
   let [user, setuser] = useState(null);
@@ -83,15 +85,23 @@ const Posts = ({
         </div>
         <img src={postimg} className="postimage" />
 
-        <span className="heart">
-          {likes.includes(user?.uid) ? (
-            <AiFillHeart onClick={() => hearthandledelete(docid)} />
-          ) : (
-            <AiOutlineHeart onClick={() => hearthandle(docid)} />
-          )}
-        </span>
+        <div className="heart_container">
+          <span className="heart">
+            {likes.includes(user?.uid) ? (
+              <AiFillHeart
+                onClick={() => hearthandledelete(docid)}
+                style={{ fill: "#F94C66" }}
+              />
+            ) : (
+              <AiOutlineHeart onClick={() => hearthandle(docid)} />
+            )}
+            <p className="likescount">{likes.length} Likes</p>
+          </span>
 
-        <p className="likescount">{likes.length} Likes</p>
+          <Moment fromNow className="timeago">
+            {timeposted?.toDate()}
+          </Moment>
+        </div>
 
         <p>
           "<strong>{caption}</strong>"
@@ -105,7 +115,7 @@ const Posts = ({
                 {c.userid == user?.uid && (
                   <AiFillDelete
                     onClick={() => deletecomment(docid, c)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", verticalAlign: "text-top" }}
                   />
                 )}
               </li>
